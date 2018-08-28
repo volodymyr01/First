@@ -1,0 +1,578 @@
+{
+	"info": {
+		"_postman_id": "93feec30-931e-426e-aa0e-0be5b8c988f8",
+		"name": "ok",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "e9acae43-39ff-4350-8d30-dd41af4c0575",
+			"name": "https://docs.postman-echo.com/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c13981f4-6777-4bed-a293-6ee4123cbc7f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.form.surname).to.eql('test');",
+							"     pm.expect(jsonData.form.email).to.eql('testunique123dfd@gmail.com');",
+							"    pm.expect(jsonData.form.username).to.eql('test');",
+							"",
+							"",
+							"pm.environment.set(\"user-login\", jsonData.form.email);",
+							"pm.environment.set(\"user-password\", jsonData.form.password);",
+							"",
+							"});",
+							"",
+							"",
+							"",
+							"",
+							"",
+							"//console.log(jsonData);",
+							"//console.log(\"response: \"+'jsonData');"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"sessionValue": "test",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "{{surname}}",
+							"sessionValue": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "{{email}}",
+							"sessionValue": "testunique123@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"sessionValue": "test111)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/post",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"post"
+					]
+				},
+				"description": "descr"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "c23c29e6-ac0d-4bdf-aa26-611d5d0d3eb3",
+			"name": "https://docs.postman-echo.com/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{user-login}}",
+							"sessionValue": "testunique123@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{user-password}}",
+							"sessionValue": "test111)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/post",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "3e860278-be7d-4809-b8a6-6d55761a5fdc",
+			"name": "https://docs.postman-echo.com/?categories=mobiles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "64c117d1-5a95-483e-9d93-a9803ebb1ca6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/?categories=mobiles",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "categories",
+							"value": "mobiles"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "9b1cdc61-2e1b-4227-a1a3-113e17e5c435",
+			"name": "https://docs.postman-echo.com/?categories=all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "79702083-01b7-42be-8bee-5d57c4ffdb69",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"postman-echo\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/?categories=all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "categories",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ebbb50dc-2994-400f-9dab-7813bc8801ac",
+			"name": "https://docs.postman-echo.com/?products=all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/?products=all",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "products",
+							"value": "all"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "47757686-e0e1-40df-8e91-530c06b8a764",
+			"name": "https://docs.postman-echo.com/?categories=mobiles&producer=Samsung&topPrice=1000",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/?categories=mobiles&producer=Samsung&topPrice=1000",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "categories",
+							"value": "mobiles"
+						},
+						{
+							"key": "producer",
+							"value": "Samsung"
+						},
+						{
+							"key": "topPrice",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "8e59ac29-049b-4156-b3fe-02af4fa3c9ee",
+			"name": "https://docs.postman-echo.com/?userID=1&productid=1&message=test&rate=100&datetime=31082018 20:48:48",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userID",
+							"value": "1",
+							"sessionValue": "1",
+							"type": "text"
+						},
+						{
+							"key": "productid",
+							"value": "1",
+							"sessionValue": "1",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test",
+							"sessionValue": "test",
+							"type": "text"
+						},
+						{
+							"key": "rate",
+							"value": "100",
+							"sessionValue": "100",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "31082018 20:48:48",
+							"sessionValue": "31082018 20:48:48",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://docs.postman-echo.com/",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "cea33c52-413a-439f-b879-a66ab2e98bbd",
+			"name": "https://docs.postman-echo.com?userID=1&productid=2&quantity=3&price=100&datetime=31082018 20:48:48",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userID",
+							"value": "1",
+							"sessionValue": "1",
+							"type": "text"
+						},
+						{
+							"key": "productid",
+							"value": "1",
+							"sessionValue": "1",
+							"type": "text"
+						},
+						{
+							"key": "quantity",
+							"value": "10",
+							"sessionValue": "10",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"sessionValue": "100",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "31082018 20:58:48",
+							"sessionValue": "31082018 20:58:48",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://docs.postman-echo.com",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "aff89ff1-6bdf-4b71-b9ab-d90221f2655a",
+			"name": "https://docs.postman-echo.com/?userID=1&productid=2&quantity=3&price=100&datetime=1082018 20:48:48",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://docs.postman-echo.com/?userID=1&productid=2&quantity=3&price=100&datetime=1082018 20:48:48",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "userID",
+							"value": "1"
+						},
+						{
+							"key": "productid",
+							"value": "2"
+						},
+						{
+							"key": "quantity",
+							"value": "3"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "datetime",
+							"value": "1082018 20:48:48"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "bcd21aa8-aa1d-498f-ae70-138d366dac8c",
+			"name": "https://docs.postman-echo.com",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "payment",
+							"value": "confirm",
+							"sessionValue": "1",
+							"type": "text"
+						},
+						{
+							"key": "bucketID",
+							"value": "1",
+							"sessionValue": "1082018 20:48:48",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "1082018 20:48:48",
+							"sessionValue": "1082018 20:48:48",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://docs.postman-echo.com",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "615c1b2c-f2b9-494d-8203-a5b3ed72890f",
+			"name": "https://docs.postman-echo.com",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "payment",
+							"value": "reject",
+							"sessionValue": "reject",
+							"type": "text"
+						},
+						{
+							"key": "bucketID",
+							"value": "3",
+							"sessionValue": "3",
+							"type": "text"
+						},
+						{
+							"key": "datetimе",
+							"value": "1082018 20:48:48",
+							"sessionValue": "1082018 20:48:48",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://docs.postman-echo.com",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "515a338b-9c4f-47ad-9734-07abff7f1a75",
+			"name": "https://docs.postman-echo.com/?feedbacks=3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://docs.postman-echo.com/?feedbacks=3",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "feedbacks",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "40d5892b-b234-47ae-9c3f-cf5ff02b7413",
+			"name": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.min.js",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "94accdaa-a195-4414-bdc8-bf0529bad443",
+						"type": "text/javascript",
+						"exec": [
+							"// If the \"postman_bdd_path\" environment variable is set, then we'll use it.",
+							"// Otherwise, we'll default to the published version",
+							"if (!environment.postman_bdd_path) {",
+							"    postman.setGlobalVariable('postman_bdd_path', 'http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.min.js');",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "10dd3b69-7793-4701-af42-0b78a7b5e558",
+						"type": "text/javascript",
+						"exec": [
+							"// \"install\" Postman BDD",
+							"postman.setGlobalVariable('postmanBDD', responseBody);",
+							"",
+							"",
+							"// expect interface ",
+							"expect(response).to.have.header('content-type', 'application/json'); ",
+							"// should interface ",
+							"response.should.have.header('content-type', 'application/json');",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://bigstickcarpet.com/postman-bdd/dist/postman-bdd.min.js",
+					"protocol": "http",
+					"host": [
+						"bigstickcarpet",
+						"com"
+					],
+					"path": [
+						"postman-bdd",
+						"dist",
+						"postman-bdd.min.js"
+					]
+				},
+				"description": "BDD"
+			},
+			"response": []
+		}
+	]
+}
